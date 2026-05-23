@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Código Aleatório</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      width: 320px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #codigo {
+      font-size: 28px;
+      font-weight: bold;
+      background: #2b2b2b;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+    }
+
+    button {
+      background: #00b894;
+      border: none;
+      padding: 12px 20px;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00a383;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Gerador Aleatório</h1>
+
+    <div id="codigo">------</div>
+
+    <button onclick="gerarCodigo()">
+      Gerar Código
+    </button>
+  </div>
+
+  <script>
+    function gerarCodigo(tamanho = 6) {
+      const caracteres =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+      let codigo = "";
+
+      for (let i = 0; i < tamanho; i++) {
+        const aleatorio = Math.floor(Math.random() * caracteres.length);
+        codigo += caracteres.charAt(aleatorio);
+      }
+
+      document.getElementById("codigo").innerText = codigo;
+    }
+  </script>
+
+</body>
+</html>
